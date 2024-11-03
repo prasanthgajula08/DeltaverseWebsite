@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppCard from '../components/AppCard.astro';
+---
+
+<Layout title="Deltaverse - Android Apps">
+	<main>
+		<div class="hero">
+			<div class="hero-content">
+				<h1>Delta<span class="verse">verse</span></h1>
+				<p class="tagline">Crafting Innovative Android Experiences</p>
+				<div class="hero-decoration"></div>
+			</div>
+		</div>
+
+		<section class="apps">
+			<AppCard
+				title="SAND"
+				description="Advanced Torrent Streaming & Download Solution"
+				features={[
+					'Stream torrents directly',
+					'Fast download speeds',
+					'User-friendly interface',
+					'Efficient resource management'
+				]}
+				playStoreLink="https://play.google.com/store/apps/details?id=org.jsp.wide"
+			/>
+
+			<AppCard
+				title="Pico Launcher"
+				description="Minimalist Android Home Launcher"
+				features={[
+					'Clean, distraction-free interface',
+					'Lightning-fast performance',
+					'Minimal battery impact',
+					'Intuitive app organization'
+				]}
+				playStoreLink="https://play.google.com/store/apps/details?id=org.deltaverse.picolauncher"
+			/>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0 auto;
+		padding: 2rem;
+		max-width: 1200px;
+		color: var(--text);
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero {
+		min-height: 80vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		padding: 4rem 0;
+	}
+
+	.hero-content {
+		text-align: center;
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.hero-decoration {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
+		opacity: 0.1;
+		filter: blur(100px);
+		z-index: -1;
+	}
+
+	h1 {
+		font-size: 6rem;
+		font-weight: 700;
+		margin: 0;
+		letter-spacing: -2px;
+		color: white;
+	}
+
+	.verse {
+		background: linear-gradient(45deg, var(--accent), var(--accent-light));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.tagline {
+		font-size: 1.5rem;
+		color: #94A3B8;
+		margin-top: 1rem;
+		font-weight: 500;
+	}
+
+	.apps {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 3rem;
+		padding: 4rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			min-height: 60vh;
+			padding: 2rem 0;
+		}
+
+		h1 {
+			font-size: 3.5rem;
+		}
+
+		.tagline {
+			font-size: 1.2rem;
+		}
+
+		.apps {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem 0;
+		}
+
+		.hero-decoration {
+			width: 300px;
+			height: 300px;
+		}
+	}
+</style>

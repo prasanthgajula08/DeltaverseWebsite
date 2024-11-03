@@ -1,0 +1,61 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Deltaverse - Innovative Android Apps" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="stars"></div>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: #7C3AED;
+		--accent-light: #A78BFA;
+		--accent-dark: #5B21B6;
+		--background: #0F172A;
+		--text: #E2E8F0;
+	}
+	html {
+		font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+		background: var(--background);
+		color: var(--text);
+		scroll-behavior: smooth;
+	}
+	body {
+		margin: 0;
+		min-height: 100vh;
+		position: relative;
+		overflow-x: hidden;
+	}
+	.stars {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.1) 0%, rgba(15, 23, 42, 0) 50%);
+	}
+	@keyframes float {
+		0% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+		100% { transform: translateY(0px); }
+	}
+</style>
